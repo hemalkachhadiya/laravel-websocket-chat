@@ -371,7 +371,7 @@ export default {
     },
     getRooms() {
       axios
-        .get("/chat/rooms")
+        .get(this.route('home')+"/chat/rooms")
         .then((result) => {
           this.chatRooms = result.data;
           // this.setRoom(result.data[0]);
@@ -398,7 +398,7 @@ export default {
     getMessages() {
       console.log("getMessage");
       axios
-        .get("/chat/rooms/" + this.currentRoom.id + "/messages")
+        .get(this.route('home')+"/chat/rooms/" + this.currentRoom.id + "/messages")
         .then((result) => {
           this.messages = result.data;
         })
@@ -412,7 +412,7 @@ export default {
       this.newuser = null;
       if (this.newemail != null) {
         axios
-          .post("/finduser", {
+          .post(this.route('home')+"/finduser", {
             email: this.newemail,
             _token: document.head.querySelector('meta[name="csrf-token"]')
               .content,
@@ -433,7 +433,7 @@ export default {
     createnewchannel(crnewremail) {
       this.setRoom(this.chatRooms[0]);
     //   axios
-    //     .post("/createnewroom", {
+    //     .post(this.route('home')+"/createnewroom", {
     //       email: crnewremail,
     //     })
     //     .then((result) => {

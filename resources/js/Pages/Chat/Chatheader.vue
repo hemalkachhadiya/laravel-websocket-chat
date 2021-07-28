@@ -20,7 +20,7 @@ export default {
   methods:{
     roomdetails(id){
        axios
-        .post("/roomdetails", {
+        .post(this.route('home')+"/roomdetails", {
           room_id: id,
         })
         .then((result) => {

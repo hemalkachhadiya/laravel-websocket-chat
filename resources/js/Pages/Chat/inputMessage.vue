@@ -114,7 +114,7 @@ export default {
       formData.append("videos", videos);
       formData.append("message", this.message);
       axios
-        .post("/chat/rooms/" + this.room.id + "/message", formData, {
+        .post(this.route('home')+"/chat/rooms/" + this.room.id + "/message", formData, {
           headers: {
             "Content-Type": "multipart/form-data",
           },

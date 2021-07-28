@@ -19057,7 +19057,7 @@ __webpack_require__.r(__webpack_exports__);
     roomdetails: function roomdetails(id) {
       var _this = this;
 
-      axios.post("/roomdetails", {
+      axios.post(this.route('home') + "/roomdetails", {
         room_id: id
       }).then(function (result) {
         _this.roomowner = result.data;
@@ -19202,7 +19202,7 @@ __webpack_require__.r(__webpack_exports__);
     getRooms: function getRooms() {
       var _this = this;
 
-      axios.get("/chat/rooms").then(function (result) {
+      axios.get(this.route('home') + "/chat/rooms").then(function (result) {
         _this.chatRooms = result.data; // this.setRoom(result.data[0]);
       })["catch"](function (err) {
         console.log(err);
@@ -19231,7 +19231,7 @@ __webpack_require__.r(__webpack_exports__);
       var _this3 = this;
 
       console.log("getMessage");
-      axios.get("/chat/rooms/" + this.currentRoom.id + "/messages").then(function (result) {
+      axios.get(this.route('home') + "/chat/rooms/" + this.currentRoom.id + "/messages").then(function (result) {
         _this3.messages = result.data;
       })["catch"](function (err) {
         console.log(err);
@@ -19245,7 +19245,7 @@ __webpack_require__.r(__webpack_exports__);
       this.newuser = null;
 
       if (this.newemail != null) {
-        axios.post("/finduser", {
+        axios.post(this.route('home') + "/finduser", {
           email: this.newemail,
           _token: document.head.querySelector('meta[name="csrf-token"]').content
         }).then(function (result) {
@@ -19262,7 +19262,7 @@ __webpack_require__.r(__webpack_exports__);
     },
     createnewchannel: function createnewchannel(crnewremail) {
       this.setRoom(this.chatRooms[0]); //   axios
-      //     .post("/createnewroom", {
+      //     .post(this.route('home')+"/createnewroom", {
       //       email: crnewremail,
       //     })
       //     .then((result) => {
@@ -19344,7 +19344,7 @@ __webpack_require__.r(__webpack_exports__);
       formData.append("images", images);
       formData.append("videos", videos);
       formData.append("message", this.message);
-      axios.post("/chat/rooms/" + this.room.id + "/message", formData, {
+      axios.post(this.route('home') + "/chat/rooms/" + this.room.id + "/message", formData, {
         headers: {
           "Content-Type": "multipart/form-data"
         }

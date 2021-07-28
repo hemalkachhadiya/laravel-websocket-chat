@@ -25,7 +25,7 @@ Route::get('/', function () {
         'laravelVersion' => Application::VERSION,
         'phpVersion' => PHP_VERSION,
     ]);
-});
+})->name('home');
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return Inertia::render('Dashboard');
@@ -36,7 +36,7 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/chat', function () {
 })->name('chat');
 
 Route::group(['middleware' => ['auth:sanctum']], function () {
-    Route::get('/chat/rooms', [ChatController::class, 'rooms']);
+    Route::get('/chat/rooms', [ChatController::class, 'rooms'])->name('rooms');
     Route::get('/chat/rooms/{roomId}/messages', [ChatController::class, 'messages']);
     Route::post('/chat/rooms/{roomId}/message', [ChatController::class, 'newMessage']);
     Route::post('/finduser', [UserController::class, 'finduser']);
