@@ -37,8 +37,8 @@ window.Echo = new Echo({
     wsPort: 6001,
     wssPort: 6001,
     disableStats: true, 
-    forceTLS: true
-    // enabledTransports: ['ws', 'wss'],
+    forceTLS: false,
+    enabledTransports: ['ws', 'wss'],
     // authEndpoint: 'http://127.0.0.1:8000/laravel-websockets/auth',
     // auth: {
     //     headers: {

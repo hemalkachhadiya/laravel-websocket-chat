@@ -25578,9 +25578,10 @@ window.Echo = new laravel_echo__WEBPACK_IMPORTED_MODULE_0__.default({
   // forceTLS: true
   wsHost: window.location.hostname,
   wsPort: 6001,
+  wssPort: 6001,
   disableStats: true,
-  forceTLS: false // enabledTransports: ['ws', 'wss'],
-  // authEndpoint: 'http://127.0.0.1:8000/laravel-websockets/auth',
+  forceTLS: false,
+  enabledTransports: ['ws', 'wss'] // authEndpoint: 'http://127.0.0.1:8000/laravel-websockets/auth',
   // auth: {
   //     headers: {
   //         'X-CSRF-Token': "{{ csrf_token() }}",

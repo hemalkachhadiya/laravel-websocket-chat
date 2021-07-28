@@ -42,6 +42,10 @@ return [
                 'host'  => env('APP_IP_ADDRESS'),
                 'port' => 6001,
                 'scheme' => 'http',
+                'curl_options' => [
+                    CURLOPT_SSL_VERIFYHOST => 0,
+                    CURLOPT_SSL_VERIFYPEER => 0,
+                ]
             ],
         ],
 
