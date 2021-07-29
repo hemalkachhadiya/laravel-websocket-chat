@@ -36,16 +36,16 @@ return [
             'secret' => env('PUSHER_APP_SECRET'),
             'app_id' => env('PUSHER_APP_ID'),
             'options' => [
-                'encrypted' => false,
+                // 'encrypted' => false,
                 'cluster' => env('PUSHER_APP_CLUSTER'),
-                'useTLS' => false,
-                'host'  => env('APP_IP_ADDRESS'),
-                'port' => 6001,
-                'scheme' => 'http',
-                'curl_options' => [
-                    CURLOPT_SSL_VERIFYHOST => 0,
-                    CURLOPT_SSL_VERIFYPEER => 0,
-                ]
+                'useTLS' => true,
+                // 'host'  => env('APP_IP_ADDRESS'),
+                // 'port' => (int)env('LARAVEL_WEBSOCKETS_PORT',6001),
+                // 'scheme' => 'http',
+                // 'curl_options' => [
+                //     CURLOPT_SSL_VERIFYHOST => 0,
+                //     CURLOPT_SSL_VERIFYPEER => 0,
+                // ]
             ],
         ],
 

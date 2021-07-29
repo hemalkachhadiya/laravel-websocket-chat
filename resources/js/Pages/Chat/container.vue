@@ -344,10 +344,10 @@ export default {
             }
             console.log(e.chatMessage);
             let notibody = "";
-            if (chatMessage.message == null) {
-              notibody = chatMessage.document;
+            if (e.chatMessage.message == null) {
+              notibody = e.chatMessage.document;
             } else {
-              notibody = chatMessage.messgae;
+              notibody = e.chatMessage.messgae;
             }
             Notification.requestPermission((permission) => {
               let notification = new Notification(e.chatMessage.user.name, {

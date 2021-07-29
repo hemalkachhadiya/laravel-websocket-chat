@@ -33,18 +33,18 @@ window.Echo = new Echo({
     encrypted: false,
 
     // forceTLS: true
-    wsHost: window.location.hostname,
-    wsPort: 6001,
-    wssPort: 6001,
-    disableStats: true, 
-    forceTLS: false,
-    enabledTransports: ['ws', 'wss'],
-    // authEndpoint: 'http://127.0.0.1:8000/laravel-websockets/auth',
-    // auth: {
-    //     headers: {
-    //         'X-CSRF-Token': "{{ csrf_token() }}",
-    //         'X-App-ID': process.env.MIX_PUSHER_APP_KEY,
-    //     }
-    // },
+    // wsHost: process.env.PUSHER_APP_HOST,//window.location.hostname,
+    // wsPort: 6001,
+    // wssPort: 6001,
+    // disableStats: true, 
+    // forceTLS: false,
+    // enabledTransports: ['ws', 'wss'],
+    authEndpoint: "broadcasting/auth",
+    auth: {
+        headers: {
+            // 'X-CSRF-Token': "{{ csrf_token() }}",
+            'X-App-ID': process.env.MIX_PUSHER_APP_KEY,
+        }
+    },
 
 });

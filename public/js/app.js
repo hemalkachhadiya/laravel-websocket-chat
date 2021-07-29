@@ -19173,10 +19173,10 @@ __webpack_require__.r(__webpack_exports__);
           console.log(e.chatMessage);
           var notibody = "";
 
-          if (chatMessage.message == null) {
-            notibody = chatMessage.document;
+          if (e.chatMessage.message == null) {
+            notibody = e.chatMessage.document;
           } else {
-            notibody = chatMessage.messgae;
+            notibody = e.chatMessage.messgae;
           }
 
           Notification.requestPermission(function (permission) {
@@ -25453,7 +25453,7 @@ var render = /*#__PURE__*/_withId(function (_ctx, _cache, $props, $setup, $data,
 
   return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", _hoisted_1, [$props.canLogin ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", _hoisted_2, [_ctx.$page.props.user ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_inertia_link, {
     key: 0,
-    href: "/dashboard",
+    href: _ctx.route('dashboard'),
     "class": "text-sm text-gray-700 underline"
   }, {
     "default": _withId(function () {
@@ -25462,7 +25462,9 @@ var render = /*#__PURE__*/_withId(function (_ctx, _cache, $props, $setup, $data,
     _: 1
     /* STABLE */
 
-  })) : ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, {
+  }, 8
+  /* PROPS */
+  , ["href"])) : ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, {
     key: 1
   }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_inertia_link, {
     href: _ctx.route('login'),
@@ -25572,23 +25574,23 @@ if (token) {
 window.Pusher = __webpack_require__(/*! pusher-js */ "./node_modules/pusher-js/dist/web/pusher.js");
 window.Echo = new laravel_echo__WEBPACK_IMPORTED_MODULE_0__.default({
   broadcaster: 'pusher',
-  key: "djkdsjfksdmf1515",
+  key: "826a77eb4a26b68f9ce3",
   cluster: "ap2",
   encrypted: false,
   // forceTLS: true
-  wsHost: window.location.hostname,
-  wsPort: 6001,
-  wssPort: 6001,
-  disableStats: true,
-  forceTLS: false,
-  enabledTransports: ['ws', 'wss'] // authEndpoint: 'http://127.0.0.1:8000/laravel-websockets/auth',
-  // auth: {
-  //     headers: {
-  //         'X-CSRF-Token': "{{ csrf_token() }}",
-  //         'X-App-ID': process.env.MIX_PUSHER_APP_KEY,
-  //     }
-  // },
-
+  // wsHost: process.env.PUSHER_APP_HOST,//window.location.hostname,
+  // wsPort: 6001,
+  // wssPort: 6001,
+  // disableStats: true, 
+  // forceTLS: false,
+  // enabledTransports: ['ws', 'wss'],
+  authEndpoint: "broadcasting/auth",
+  auth: {
+    headers: {
+      // 'X-CSRF-Token': "{{ csrf_token() }}",
+      'X-App-ID': "826a77eb4a26b68f9ce3"
+    }
+  }
 });
 
 /***/ }),
